@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test task for GoMobile company</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- {{ message }} -->
+      <div class="up">
+        <ul>
+          <li></li>
+          <li>id</li>
+          <li>date</li>
+          <li>name</li>
+        </ul>
+      </div>
+      <div class="down">
+        <div class="down-search">
+          &#129422;
+          <input v-model="search" type="text" placeholder="поисковая строка" />
+        </div>
+        <ul
+          class="down-todo"
+          v-for="(item,index) in filteredItems"
+          v-bind="index"
+        >
+          <li class="down-todo_delete" @click="deleteToDo(index)">&#129428;</li>
+          <li>{{ item.id }}</li>
+          <li>{{ item.date }}</li>
+          <li class="down-todo_name">
+            <input
+              v-model="item.name"
+              type="text"
+              placeholder="очень важное дело"
+            />
+          </li>
+        </ul>
+        <div class="down-add-button" @click="addToDo()">Добавить задачу</div>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
